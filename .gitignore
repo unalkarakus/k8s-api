@@ -1,0 +1,5 @@
+test.http
+*.http
+__pycache__/
+**/__pycache__/
+DS_Store/

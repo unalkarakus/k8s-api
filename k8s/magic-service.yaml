@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: magic-api
+spec:
+  selector:
+    app: magic-api
+  ports:
+    - port: 8181
+      targetPort: 8080
+  type: LoadBalancer

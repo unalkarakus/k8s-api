@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magic-api
+spec:
+  selector:
+    matchLabels:
+      app: magic-api
+  template:
+    metadata:
+      labels:
+        app: magic-api
+    spec:
+      imagePullSecrets:
+      - name: zregcred
+      containers:
+      - name: magic-api
+        image: zenigmatraining.azurecr.io/soitron/magic-api:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
