@@ -1,0 +1,7 @@
+2022-04-08 13:25:08 - magic value is:3494
+2022-04-08 13:25:10 - magic value is:3574
+2022-04-08 13:25:10 - magic value is:106
+2022-04-08 13:25:10 - magic value is:703
+2022-04-08 13:25:10 - magic value is:4290
+2022-04-08 13:25:11 - magic value is:3761
+2022-04-08 13:25:11 - magic value is:1141

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucky-api
+  namespace: soitron
+spec:
+  selector:
+    matchLabels:
+      app: lucky-api
+  template:
+    metadata:
+      labels:
+        app: lucky-api
+    spec:
+      imagePullSecrets:
+      - name: zregcred
+      containers:
+      - name: lucky-api
+        image: zenigmatraining.azurecr.io/soitron/lucky-api:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CONFIG_PATH
+          value: /etc/lucky/config.json
+        volumeMounts:
+        - name: lucky-volume
+          mountPath: "/etc/lucky/"
+      volumes:
+      - name: lucky-volume
+        configMap:
+          name: lucky-api-config

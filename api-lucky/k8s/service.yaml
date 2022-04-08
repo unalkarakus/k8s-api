@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lucky-api
+  namespace: training
+  labels:
+    name: lucky-api-service
+spec:
+  selector:
+    app: lucky-api
+  ports:
+    - port: 8282
+      targetPort: 8080
+  type: ClusterIP

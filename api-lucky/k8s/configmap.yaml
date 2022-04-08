@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lucky-api-config
+  namespace: training
+data:
+  config.json: '{ "MAGIC_URL":"http://magic-api.apps.openshift.aws.zenigma.com/magic" }'

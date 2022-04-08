@@ -1,7 +1,9 @@
+import datetime
 import json
-from random import Random
-from flask import Flask, render_template, request, jsonify
+from flask import Flask
 from flask_cors import CORS
+import fileops
+from configuration import config
 import requests
 
 
@@ -16,12 +18,25 @@ def default():
 
 @app.route('/lucky',methods=['GET'])
 def magic():
-    url = "http://magic-api.apps.openshift.aws.zenigma.com/magic"
+    url = config["MAGIC_URL"]
+    if(url == "") or (url is None):
+        return {
+            "message": "Please set the MAGIC_URL in the config.json file!"
+        }
     response = requests.get(url=url, headers={'Content-Type': 'application/json'})
-    print(response.text)
     deserialized = json.loads(response.text)
-    return "I'm happy to get magic-number: "+ str(deserialized["data"]) +". I'm the luckiest API :)"
-            
-            
+    magic_value = deserialized["data"]
+    timeString = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    fileops.write_to_file(timeString+ " - Magic value is:" + str(magic_value) + "\n")
+    return {
+        "message": "I'm happy to get magic-number: "+ str(magic_value) +". I'm the luckiest API :)"
+    }
+
+@app.route('/read-file',methods=['GET'])
+def read_file():
+    return {
+        "content": fileops.read_from_file()
+    }
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8080)
