@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lucky-api
+  namespace: training
   labels:
     name: lucky-api-deployment
 spec:

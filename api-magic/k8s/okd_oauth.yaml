@@ -1,0 +1,27 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - name: AAD
+    mappingMethod: claim
+    type: OpenID
+    openID:
+      clientID: b162ec2d-e4db-4c83-9802-579cfdacc129
+      clientSecret:
+        name: openid-client-secret-azuread
+      extraScopes:
+      - email
+      - profile
+      extraAuthorizeParameters:
+        include_granted_scopes: "true"
+      claims:
+        preferredUsername:
+        - email
+        - upn
+        name:
+        - name
+        email:
+        - email
+      issuer: https://login.microsoftonline.com/2c108a03-445c-4c55-b0d6-5e6a783a6a9a

@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lucky-api
+  name: magic-api
+  namespace: training
 spec:
   selector:
     matchLabels:
-      app: lucky-api
+      app: magic-api
   template:
     metadata:
       labels:
-        app: lucky-api
+        app: magic-api
     spec:
       imagePullSecrets:
       - name: zregcred
       containers:
-      - name: lucky-api
-        image: zenigmatraining.azurecr.io/soitron/lucky-api:latest
+      - name: magic-api
+        image: zenigmatraining.azurecr.io/soitron/magic-api:latest
         imagePullPolicy: Always
         resources:
           limits:

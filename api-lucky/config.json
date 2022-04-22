@@ -1,3 +1,5 @@
 {
-    "MAGIC_URL":"http://magic-api.apps.openshift.aws.zenigma.com/magic"
+    "MAGIC_URL":"----",
+    "TWISTLOCK_URL":"-----",
+    "TWISTLOCK_TOKEN":"-----"
 }

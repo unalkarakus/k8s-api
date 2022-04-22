@@ -4,4 +4,4 @@ metadata:
   name: lucky-api-config
   namespace: training
 data:
-  config.json: '{ "MAGIC_URL":"http://magic-api.apps.openshift.aws.zenigma.com/magic" }'
+  config.json: '{ "MAGIC_URL":"----", "TWISTLOCK_URL":"----", "TWISTLOCK_TOKEN":"----" }'

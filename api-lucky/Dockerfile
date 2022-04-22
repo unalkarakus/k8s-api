@@ -2,6 +2,8 @@ FROM python:3-alpine3.15
 
 WORKDIR /app
 
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 # Copy the requirements.txt file for dependencies
 COPY requirements.txt requirements.txt
 
@@ -12,5 +14,11 @@ RUN pip3 install -r requirements.txt
 COPY config.json config.json
 COPY *.py .
 
+RUN touch current.txt
+RUN chown -R appuser:appgroup /app
+RUN chmod 777 /app
+RUN chmod 777 current.txt
+
+USER appuser
 CMD [ "python3", "/app/app.py"]
 

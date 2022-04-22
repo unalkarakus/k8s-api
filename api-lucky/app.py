@@ -3,6 +3,7 @@ import json
 from flask import Flask
 from flask_cors import CORS
 import fileops
+import twistlock
 from configuration import config
 import requests
 
@@ -31,6 +32,10 @@ def magic():
     return {
         "message": "I'm happy to get magic-number: "+ str(magic_value) +". I'm the luckiest API :)"
     }
+
+@app.route('/defenders',methods=['GET'])
+def defenders():
+    return twistlock.call_twistlock_defenders() 
 
 @app.route('/read-file',methods=['GET'])
 def read_file():
