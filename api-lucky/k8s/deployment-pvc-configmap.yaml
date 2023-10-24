@@ -15,10 +15,10 @@ spec:
         app: lucky-api
     spec:
       imagePullSecrets:
-      - name: zregcred
+      - name: ahregsecret
       containers:
       - name: lucky-api
-        image: zenigmatraining.azurecr.io/soitron/lucky-api:latest
+        image: ahregistrytest.azurecr.io/api/lucky-api:latest
         imagePullPolicy: Always
         resources:
           limits:

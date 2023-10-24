@@ -13,10 +13,10 @@ spec:
         app: magic-api
     spec:
       imagePullSecrets:
-      - name: zregcred
+      - name: ahregsecret
       containers:
       - name: magic-api
-        image: zenigmatraining.azurecr.io/soitron/magic-api:latest
+        image: zenigmatraining.azurecr.io/rancher/magic-api:latest
         imagePullPolicy: Always
         resources:
           limits:

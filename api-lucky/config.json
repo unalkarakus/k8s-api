@@ -1,5 +1,5 @@
 {
-    "MAGIC_URL":"----",
+    "MAGIC_URL":"http://localhost:8080/magic",
     "TWISTLOCK_URL":"-----",
     "TWISTLOCK_TOKEN":"-----"
 }

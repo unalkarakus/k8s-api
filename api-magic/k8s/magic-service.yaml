@@ -2,10 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: magic-api
+  namespace: training
 spec:
   selector:
     app: magic-api
   ports:
-    - port: 8181
+    - port: 80
       targetPort: 8080
-  type: ClusterIP
+  type: NodePort
